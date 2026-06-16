@@ -64,6 +64,18 @@ File information, it contains 3 groups of properties:
 <tr>
 <td>
 
+[MkdirOptions](type-aliases/MkdirOptions.md)
+
+</td>
+<td>
+
+Mkdir options.
+
+</td>
+</tr>
+<tr>
+<td>
+
 [OpenOptions](type-aliases/OpenOptions.md)
 
 </td>
@@ -111,6 +123,56 @@ It is same with [std::fs::OpenOptions](https://doc.rust-lang.org/std/fs/struct.O
 <tr>
 <td>
 
+[link](functions/link.md)
+
+</td>
+<td>
+
+Create hard link from a file path.
+
+**Throws**
+
+Throws [TypeError](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypeError) if any parameter is invalid. Or throws [Error](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error) if failed to create hard link from the file.
+
+**Example**
+
+```javascript
+try {
+  await Rsvim.fs.link("README.md", "linked-README.md");
+  Rsvim.cmd.echo(`Created hard link "linked-README.md" pointing to "README.md"`);
+} catch (e) {
+  Rsvim.cmd.echo(`Failed to create hard link pointing to "README.md": ${e}`);
+}
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+[linkSync](functions/linkSync.md)
+
+</td>
+<td>
+
+Sync version of [link](functions/link.md).
+
+**Example**
+
+```javascript
+try {
+  Rsvim.fs.linkSync("README.md", "linked-README.md");
+  Rsvim.cmd.echo(`Created hard link "linked-README.md" pointing to "README.md"`);
+} catch (e) {
+  Rsvim.cmd.echo(`Failed to create hard link pointing to "README.md": ${e}`);
+}
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
 [lstat](functions/lstat.md)
 
 </td>
@@ -152,6 +214,56 @@ Sync version of [lstat](functions/lstat.md).
 
 ```javascript
 const fstat = Rsvim.fs.lstatSync("README.md");
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+[mkdir](functions/mkdir.md)
+
+</td>
+<td>
+
+Make a directory.
+
+**Throws**
+
+Throws !TypeError if any parameter is invalid. Or throws Error if failed to create hard mkdir from the file.
+
+**Example**
+
+```javascript
+try {
+  await Rsvim.fs.mkdir(".rsvim");
+  Rsvim.cmd.echo(`Created directory ".rsvim"`);
+} catch (e) {
+  Rsvim.cmd.echo(`Failed to create directory ".rsvim": ${e}`);
+}
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+[mkdirSync](functions/mkdirSync.md)
+
+</td>
+<td>
+
+Sync version of [mkdir](functions/mkdir.md).
+
+**Example**
+
+```javascript
+try {
+  Rsvim.fs.mkdirSync(".rsvim");
+  Rsvim.cmd.echo(`Created directory ".rsvim"`);
+} catch (e) {
+  Rsvim.cmd.echo(`Failed to create directory ".rsvim": ${e}`);
+}
 ```
 
 </td>
