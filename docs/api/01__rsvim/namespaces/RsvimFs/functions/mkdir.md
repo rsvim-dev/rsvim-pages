@@ -45,7 +45,7 @@ Directory path.
 </td>
 <td>
 
-&hyphen;
+(Optional) Options when create directory, by default is `{recursive: false, mode: 0o777}`, the `mode` option only works on Unix platform, and is ignored on Windows platform.
 
 </td>
 </tr>
@@ -60,7 +60,7 @@ It resolves to nothing.
 
 ## Throws
 
-Throws !TypeError if any parameter is invalid. Or throws Error if failed to create hard mkdir from the file.
+Throws [TypeError](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypeError) if any parameter is invalid. Or throws [Error](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error) if failed to create hard mkdir from the file.
 
 ## Example
 

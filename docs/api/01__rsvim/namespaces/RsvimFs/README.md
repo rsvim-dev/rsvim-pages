@@ -230,7 +230,7 @@ Make a directory.
 
 **Throws**
 
-Throws !TypeError if any parameter is invalid. Or throws Error if failed to create hard mkdir from the file.
+Throws [TypeError](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypeError) if any parameter is invalid. Or throws [Error](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error) if failed to create hard mkdir from the file.
 
 **Example**
 
