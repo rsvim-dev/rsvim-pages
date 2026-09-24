@@ -18,4 +18,4 @@ From one perspective, you can think of javascript and typescript as configuratio
 
 Perfect compatibility with existing [Vimscript](https://en.wikipedia.org/wiki/Vimscript) community (for Vim) and [Lua](https://neovim.io/doc/user/lua.html) community (for Neovim) is unrealistic, breaking changes are expected and unavoidable.
 
-Rsvim is developed by the [rsvim](https://github.com/rsvim) community. The project is hosted on [GitHub](https://github.com/rsvim/rsvim), with documentation available on [GitHub Pages](https://rsvim.github.io/). Both are licensed under [Vim License](https://github.com/rsvim/rsvim/blob/main/LICENSE.txt) in accordance with the [Vim](https://github.com/vim/vim) project.
+Rsvim is developed by the [rsvim](https://github.com/rsvim-dev/) community. The project is hosted on [GitHub](https://github.com/rsvim-dev/rsvim). Licensed under "Vim License".

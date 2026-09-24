@@ -6,7 +6,7 @@ tags: [product]
 
 [Vim](https://www.vim.org/) and [Neovim](https://neovim.io/) editors are so popular and loved by developers and text writers all over the world, including me.
 
-<!-- truncate -->
+{/* truncate */}
 
 ## History
 
@@ -18,7 +18,7 @@ Neovim's choice has proven to be successful, with luajit greatly improving the p
 
 ## Script
 
-Script [plays a most important role in the (Neo)Vim editor: it drives the appearance and behavior of the editor, schedules background tasks, is responsible for communicating with remote processes, and so on. It also turns the editor into a language interpreter/runtime/virtual machine](https://github.com/rsvim/rfc/blob/873cf96ca2ea256c0694e9396816b2ded827d08a/2-JavascriptEngine.md?plain=1#L9) at the same time. When regarding the (Neo)Vim editor as a language interpreter, we will start to think about more topics:
+Script plays a most important role in the (Neo)Vim editor: it drives the appearance and behavior of the editor, schedules background tasks, is responsible for communicating with remote processes, and so on. It also turns the editor into a language interpreter/runtime/virtual machine at the same time. When regarding the (Neo)Vim editor as a language interpreter, we will start to think about more topics:
 
 - Modern programming language features:
   - Functional programming: closures, no side effects, etc.
@@ -43,7 +43,7 @@ We don't have many options:
 - Python is too slow.
 - Other scripting languages like lua/vimscript/lisp are not that popular, and some new scripting languages are too young to be widely used.
 
-JavaScript meets most of the requirements. Google has spent millions of dollars and tons of engineering hours on the [V8](https://v8.dev/) engine, the community has also emerged with [QuickJS](https://bellard.org/quickjs/), both are great solutions built into the editor. But wait, js has a bad and chaotic syntax, its success actually belongs to the browsers and web industry, not js itself. So the ultimate goal is [to write scripts in typescript, and js can play the role of the middle layer under the hood](https://github.com/rsvim/rfc/blob/873cf96ca2ea256c0694e9396816b2ded827d08a/2-JavascriptEngine.md?plain=1#L25). Ts makes up for some shortcomings of js:
+JavaScript meets most of the requirements. Google has spent millions of dollars and tons of engineering hours on the [V8](https://v8.dev/) engine, the community has also emerged with [QuickJS](https://bellard.org/quickjs/), both are great solutions built into the editor. But wait, js has a bad and chaotic syntax, its success actually belongs to the browsers and web industry, not js itself. So the ultimate goal is to write scripts in typescript, and js can play the role of the middle layer under the hood. Ts makes up for some shortcomings of js:
 
 - More elegant and beautiful syntax design.
 - Static type.

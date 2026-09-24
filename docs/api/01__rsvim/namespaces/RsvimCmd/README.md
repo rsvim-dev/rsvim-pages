@@ -41,14 +41,16 @@ Command attributes.
 </td>
 <td>
 
-Command callback function, this is the backend logic that implements a user ex command.
+Command callback function, the backend logic that implements a user ex command.
+
+Note: The callback function can be either sync or async.
 
 It accepts a `ctx` parameter that indicates runtime information when the command is executed.
 
 **See**
 
  - [RsvimCmd.create](functions/create.md)
- - [CommandContext](type-aliases/CommandContext.md)
+ - [RsvimCmd.CommandContext](type-aliases/CommandContext.md)
 ,
 
 </td>

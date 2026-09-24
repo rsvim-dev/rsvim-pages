@@ -3,7 +3,8 @@ function create(
    name, 
    callback, 
    attributes?, 
-   options?): CommandDefinition;
+   options?
+): CommandDefinition;
 ```
 
 Create a ex command with a callback function.
@@ -53,7 +54,7 @@ Command name that is going to create. Only letters (`a-z` and `A-Z`), digits (`0
 </td>
 <td>
 
-Async callback function that implements the command. It accepts an `ctx` parameter that contains all the information when user is running it. See [RsvimCmd.CommandCallback](../type-aliases/CommandCallback.md).
+Callback function that implements the command. It accepts an `ctx` parameter that contains all the information when user is running it.
 
 </td>
 </tr>
@@ -70,7 +71,7 @@ Async callback function that implements the command. It accepts an `ctx` paramet
 </td>
 <td>
 
-(Optional) Attributes that control the command behavior, by default is `{bang:false, nargs:"0"}`, see [RsvimCmd.CommandAttributes](../type-aliases/CommandAttributes.md).
+(Optional) Attributes that control the command behavior, by default is `{bang:false, nargs:"0"}`.
 
 </td>
 </tr>
@@ -87,7 +88,7 @@ Async callback function that implements the command. It accepts an `ctx` paramet
 </td>
 <td>
 
-(Optional) Options that control how the command is created, by default is `{force:true}`, see [RsvimCmd.CommandOptions](../type-aliases/CommandOptions.md).
+(Optional) Options that control how the command is created, by default is `{force:true}`.
 
 </td>
 </tr>

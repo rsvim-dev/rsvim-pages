@@ -2,7 +2,8 @@
 function symlink(
    oldpath, 
    newpath, 
-options?): Promise<void>;
+   options?
+): Promise<void>;
 ```
 
 Create symbolic link from a file path.
@@ -65,7 +66,7 @@ New symbolic link that pointing to the original file.
 </td>
 <td>
 
-`"file"` \| `"dir"` \| `"junction"`
+`"dir"` \| `"junction"` \| `"file"`
 
 </td>
 <td>

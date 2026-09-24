@@ -29,3 +29,6 @@ typedoc
 .ImportMeta.md
 
 *.svg.bkp
+
+# Cloudflare Pages
+.wrangler

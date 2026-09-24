@@ -13,38 +13,38 @@ import TabItem from '@theme/TabItem';
   <TabItem value="Linux" label="Linux" default>
     ```bash
     # x86_64
-    curl -fsSL https://github.com/rsvim/rsvim/releases/latest/download/rsvim-x86_64-unknown-linux-gnu.tar.gz | tar zxf -
+    curl -fsSL https://github.com/rsvim-dev/rsvim/releases/latest/download/rsvim-x86_64-unknown-linux-gnu.tar.gz | tar zxf -
 
     # arm64
-    curl -fsSL https://github.com/rsvim/rsvim/releases/latest/download/rsvim-aarch64-unknown-linux-gnu.tar.gz | tar zxf -
+    curl -fsSL https://github.com/rsvim-dev/rsvim/releases/latest/download/rsvim-aarch64-unknown-linux-gnu.tar.gz | tar zxf -
     ```
   </TabItem>
   <TabItem value="macOS" label="macOS">
     ```bash
     # x86_64
-    curl -fsSL https://github.com/rsvim/rsvim/releases/latest/download/rsvim-x86_64-apple-darwin.tar.gz | tar zxf -
+    curl -fsSL https://github.com/rsvim-dev/rsvim/releases/latest/download/rsvim-x86_64-apple-darwin.tar.gz | tar zxf -
 
     # arm64
-    curl -fsSL https://github.com/rsvim/rsvim/releases/latest/download/rsvim-aarch64-apple-darwin.tar.gz | tar zxf -
+    curl -fsSL https://github.com/rsvim-dev/rsvim/releases/latest/download/rsvim-aarch64-apple-darwin.tar.gz | tar zxf -
     ```
   </TabItem>
   <TabItem value="Windows" label="Windows">
     ```powershell
     # x86_64
-    Invoke-WebRequest -Uri https://github.com/rsvim/rsvim/releases/latest/download/rsvim-x86_64-pc-windows-msvc.zip -OutFile rsvim.zip
-    Expand-Archive -Path rsvim.zip
+    Invoke-WebRequest -Uri https://github.com/rsvim-dev/rsvim/releases/latest/download/rsvim-x86_64-pc-windows-msvc.zip -OutFile rsvim.zip; Expand-Archive -Path rsvim.zip
 
     # arm64
-    Invoke-WebRequest -Uri https://github.com/rsvim/rsvim/releases/latest/download/rsvim-aarch64-pc-windows-msvc.zip -OutFile rsvim.zip
-    Expand-Archive -Path rsvim.zip
+    Invoke-WebRequest -Uri https://github.com/rsvim-dev/rsvim/releases/latest/download/rsvim-aarch64-pc-windows-msvc.zip -OutFile rsvim.zip; Expand-Archive -Path rsvim.zip
     ```
   </TabItem>
 </Tabs>
 
-## Build From Source
+## Build
 
 ```bash
-git clone https://github.com/rsvim/rsvim
-cd rsvim
-cargo install --path ./rsvim_cli
+# stable
+cargo install rsvim
+
+# develop
+cargo install --git https://github.com/rsvim-dev/rsvim.git rsvim
 ```

@@ -1,5 +1,5 @@
 {
-  "name": "rsvim-github-io",
+  "name": "rsvim",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,32 +7,34 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
+    "deploy": "npm run build && wrangler pages deploy ./build",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "typedoc": "typedoc"
+    "typedoc": "typedoc",
+    "preview": "npm run build && wrangler pages dev ./build"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.10.1",
-    "@docusaurus/faster": "^3.10.1",
-    "@docusaurus/preset-classic": "^3.10.1",
-    "@docusaurus/theme-mermaid": "^3.10.1",
-    "@docusaurus/theme-search-algolia": "^3.10.0",
+    "@docusaurus/core": "^3.10.2",
+    "@docusaurus/faster": "^3.10.2",
+    "@docusaurus/preset-classic": "^3.10.2",
+    "@docusaurus/theme-mermaid": "^3.10.2",
+    "@easyops-cn/docusaurus-search-local": "^0.55.3",
     "@mdx-js/react": "^3.1.1",
     "clsx": "^2.1.1",
     "prism-react-renderer": "^2.4.1",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "wrangler": "^4.129.1"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.10.0",
-    "@docusaurus/tsconfig": "^3.10.1",
+    "@docusaurus/tsconfig": "^3.10.2",
     "@docusaurus/types": "^3.10.0",
-    "typedoc": "^0.28.19",
-    "typedoc-plugin-markdown": "^4.12.0",
+    "typedoc": "^0.28.20",
+    "typedoc-plugin-markdown": "^4.13.0",
     "typedoc-plugin-mdn-links": "^5.1.1",
     "typescript": "~5.9.3"
   },
@@ -50,5 +52,11 @@
   },
   "engines": {
     "node": ">=18.0"
+  },
+  "allowScripts": {
+    "@swc/core@1.15.46": true,
+    "core-js@3.42.0": true,
+    "esbuild@0.28.1": true,
+    "workerd@1.20260828.1": true
   }
 }

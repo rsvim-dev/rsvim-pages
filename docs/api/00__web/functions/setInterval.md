@@ -1,8 +1,9 @@
 ```ts
 function setInterval(
    callback, 
-   delay?, ...
-   args): number;
+   delay?, 
+   ...args
+): number;
 ```
 
 Set a repeated timer that calls a function, with a fixed time delay between each call.

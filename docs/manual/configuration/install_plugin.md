@@ -18,7 +18,7 @@ cd $XDG_CONFIG_HOME/rsvim
 cd $HOME/.rsvim
 ```
 
-In this section, assume you use `$HOME/.rsvim` as Rsvim config home, now let's use [ex.rsvim](https://github.com/rsvim/ex.rsvim) as an example to show how to install and use a plugin.
+In this section, assume you use `$HOME/.rsvim` as Rsvim config home, now let's use [ex.rsvim](https://www.npmjs.com/package/ex.rsvim) as an example to show how to install and use a plugin.
 
 :::note
 The "ex.rsvim" plugin implements Vim's builtin [ex commands](https://vimhelp.org/index.txt.html#index.txt) (such as `write`, `quit`) to provide a compatible user experience in command-line. And you don't need to use [the annoying `js` command](/docs/manual/basic_usage/first_steps_in_rsvim#quit) any more.
@@ -29,7 +29,7 @@ The "ex.rsvim" plugin implements Vim's builtin [ex commands](https://vimhelp.org
 First `git clone` the GitHub repository to your config home:
 
 ```bash
-git clone https://github.com/rsvim/ex.rsvim ex.rsvim
+git clone https://github.com/rsvim-dev/ex.rsvim
 ```
 
 Your config home directory structure will become:
@@ -73,10 +73,10 @@ Since Rsvim can recognize the npm package in its config home directory, it will 
 
 ## Npm
 
-ex.rsvim also publishes as a npm scoped package [`@rsvim/ex.rsvim`](https://www.npmjs.com/package/@rsvim/ex.rsvim), under the official scope `@rsvim`. Thus we can also install it with `npm`:
+ex.rsvim is also published as a npm package [`ex.rsvim`](https://www.npmjs.com/package/ex.rsvim), thus we can also install it with `npm`:
 
 ```bash
-npm install @rsvim/ex.rsvim
+npm install ex.rsvim
 ```
 
 Your config home directory will become:
@@ -87,12 +87,11 @@ $HOME/.rsvim
 |- package.json      <-- create a `package.json` file
 |- package-lock.json <-- and a `package-lock.json` file
 |- node_modules/
-   |- @rsvim/
-      |- ex.rsvim/   <-- `ex.rsvim` here
-         |- lib/
-         |- src/
-         |- types/
-         |- ...
+   |- ex.rsvim/   <-- `ex.rsvim` here
+      |- lib/
+      |- src/
+      |- types/
+      |- ...
 ```
 
 The newly created `package.json` file will look like:
@@ -100,7 +99,7 @@ The newly created `package.json` file will look like:
 ```json
 {
   "dependencies": {
-    "@rsvim/ex.rsvim": "^0.2.0"
+    "ex.rsvim": "^0.2.0"
   }
 }
 ```
@@ -108,7 +107,7 @@ The newly created `package.json` file will look like:
 The setup part is a little different from git clones, your config entry script becomes:
 
 ```javascript {1}
-import ex from "@rsvim/ex.rsvim";
+import ex from "ex.rsvim";
 
 ex.setup();
 ```
@@ -133,8 +132,8 @@ $HOME/.rsvim
 {
   "type": "module",
   "dependencies": {
-    "@rsvim/syntax": "^0.1.0",
-    "@rsvim/ex": "^0.2.0"
+    "syntax.rsvim": "^0.1.0",
+    "ex.rsvim": "^0.2.0"
     ...
   }
 }
@@ -143,8 +142,8 @@ $HOME/.rsvim
 ### `rsvim.js`
 
 ```javascript
-import syntax from "@rsvim/syntax";
-import ex from "@rsvim/ex";
+import syntax from "syntax.rsvim";
+import ex from "ex.rsvim";
 
 syntax.setup();
 ex.setup();
@@ -157,82 +156,3 @@ The config entry `rsvim.js` can just import these npm packages like node/deno!
 :::warning
 Not all plugins in the `package.json` really exist 😁 (at least for now).
 :::
-
-## Scoped Package Name Problem
-
-One more thing worth to mention is: A plugin can be installed via both `git` and `npm`, and plugins can have their own dependencies. You may encounter the scoped package name problem. For example:
-
-```mermaid
-graph BT;
-    $HOME/.rsvim/rsvim.js-->A["@rsvim/A"];
-    A-->B["@rsvim/B"];
-```
-
-### Problem
-
-Suppose both `A` and `B` are hosted on GitHub as `https://github.com/rsvim/A` and `https://github.com/rsvim/B`, and you install it with git:
-
-```bash
-git clone https://github.com/rsvim/A A
-git clone https://github.com/rsvim/B B
-```
-
-And your config home becomes:
-
-```
-$HOME/.rsvim
-|- rsvim.js
-|- A/
-   |- lib/
-      |- index.js
-      |- ...
-   |- package.json
-   |- ...
-|- B/
-   |- lib/
-      |- index.js
-      |- ...
-   |- package.json
-   |- ...
-```
-
-Now, here's our problem, in `A/lib/index.js`, it tries to call a method from `B`:
-
-```javascript {1}
-import B from "@rsvim/B";
-
-const value = B.add(1, 2);
-```
-
-In the 1st line, `A` try to import package `B` as a npm scoped package, but it can never find `B`.
-
-### Solution
-
-To solve this problem, you must run `git clone` with its npm scoped package name:
-
-```bash
-git clone https://github.com/rsvim/A @rsvim/A
-git clone https://github.com/rsvim/B @rsvim/B
-```
-
-And your config home looks like:
-
-```
-$HOME/.rsvim
-|- rsvim.js
-|- @rsvim/
-   |- A/
-      |- lib/
-         |- index.js
-         |- ...
-      |- package.json
-      |- ...
-   |- B/
-      |- lib/
-         |- index.js
-         |- ...
-      |- package.json
-      |- ...
-```
-
-Now `A/lib/index.js` can find `B`!
