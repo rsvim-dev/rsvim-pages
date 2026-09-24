@@ -4,5 +4,6 @@ node = "latest"
 "npm:markdownlint" = "latest"
 "npm:typedoc" = "latest"
 "npm:npm-check-updates" = "latest"
+"npm:create-cloudflare" = "latest"
 
 python = "latest"

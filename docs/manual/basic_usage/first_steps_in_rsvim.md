@@ -196,7 +196,7 @@ Now you can go on with other works.
 :::tip[Question]
 Where are the `:w` and `:q` ex commands?
 
-The only builtin command in Rsvim is `js`, but we _officially_ provide the [ex.rsvim](https://github.com/rsvim/ex.rsvim) plugin to implement Vim's builtin ex commands, try to provide a compatible user experience in command-line.
+The only builtin command in Rsvim is `js`, but we _officially_ provide the [ex.rsvim](https://www.npmjs.com/package/ex.rsvim) plugin to implement Vim's builtin ex commands, try to provide a compatible user experience in command-line.
 
 Please checkout [Install Plugin](docs/manual/configuration/install_plugin.md) for more details.
 :::

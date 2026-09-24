@@ -1,8 +1,9 @@
 ```ts
 function setTimeout(
    callback, 
-   delay, ...
-   args): number;
+   delay, 
+   ...args
+): number;
 ```
 
 Set a timer which executes a function or specified piece of code once the timer expires.

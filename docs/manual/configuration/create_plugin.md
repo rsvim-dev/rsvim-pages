@@ -63,10 +63,6 @@ Specify the input ts code for `tsc`, output js code, and optional `.d.ts` declar
 3. `"outDir": "./dist/"` indicates put the generated `.js` files into `./dist/` directory.
 4. `"rootDir": "./src/"` indicates typescript `.ts` source code files are in `./src/` directory.
 
-### Other Options
-
-For other options, please refer to [ex.rsvim's tsconfig.json](https://github.com/rsvim/ex.rsvim/blob/main/tsconfig.json) as an example.
-
 ## `package.json`
 
 ### ES Module
@@ -106,20 +102,20 @@ User actually gets `your_plugin/dist/index.js` file, and Rsvim will never know a
 
 This is optional, it indicates your plugin's declaration types, this is useful if your plugin is a dependency for other plugins.
 
-## `@rsvim/types`
+## `rsvim-types`
 
 Once start writing code, you will soon find that typescript LSP doesn't work, e.g. it cannot provide any code-completion or lint information for you. This is because typescript doesn't know Rsvim runtime yet.
 
-So Rsvim provides type declarations for itself, e.g. the [`@rsvim/types`](https://www.npmjs.com/package/@rsvim/types) npm package. It doesn't include any APIs or modules, but only types declarations.
+So Rsvim provides type declarations for itself, e.g. the [`rsvim-types`](https://www.npmjs.com/package/rsvim-types) npm package. It doesn't include any APIs or modules, but only types declarations.
 
 ### Latest Stable
 
-Run `npm install @rsvim/types --save-dev` to install the `@rsvim/types` package as a development dependency. The `package.json` file will become:
+Run `npm install rsvim-types --save-dev` to install the `rsvim-types` package as a development dependency. The `package.json` file will become:
 
 ```json
 {
     "devDependencies": {
-        "@rsvim/types": "^0.2.0"
+        "rsvim-types": "^0.2.0"
     }
 }
 ```
@@ -128,13 +124,13 @@ And add below options to `tsconfig.json` to introduce it to typescript compiler:
 
 ```json
 {
-    "typeRoots": ["./node_modules/@rsvim"],
+    "types": ["rsvim-types"],
 }
 ```
 
 ### Nightly/Main
 
-If you want to use build a plugin that working on nightly or main branch of Rsvim, you will have to copy the [`types`](https://github.com/rsvim/rsvim/tree/main/types) directory in Rsvim to `./src/@rsvim/types` directory in your local project:
+If you want to use build a plugin that working on nightly or main branch of Rsvim, you will have to copy the [`types`](https://github.com/rsvim-dev/rsvim/tree/main/types) directory in Rsvim to `./src/rsvim-types` directory in your local project:
 
 ```
 ./your_plugin
@@ -142,7 +138,7 @@ If you want to use build a plugin that working on nightly or main branch of Rsvi
    |- index.js
 |- src/
    |- index.ts
-   |- @rsvim/types/   <-- Copied here
+   |- rsvim-types/   <-- Copied here
 |- types/
    |- index.d.ts
 |- package.json
@@ -153,15 +149,15 @@ And add below options to `tsconfig.json`:
 
 ```json
 {
-    "typeRoots": ["./src/types/@rsvim"],
+    "typeRoots": ["./src/rsvim-types/"],
 }
 ```
 
-### Legacy Version
+### Version
 
-Rsvim publishes the `@rsvim/types` with a compatible major/minor version policy, it is, the `@rsvim/types` will have a same major/minor version with Rsvim's cargo version, but the patch version can be different.
+Rsvim publishes the `rsvim-types` with a compatible major/minor version policy, it is, the npm package will have a same major/minor version with the cargo version (while the patch version can be different).
 
-For example now we have Rsvim cargo versions:
+For example now we have cargo versions:
 
 - v0.2.0
 - v0.2.1
@@ -169,7 +165,7 @@ For example now we have Rsvim cargo versions:
 - v0.3.1
 - v0.3.2
 
-And `@rsvim/types` npm versions are:
+And `rsvim-types` npm versions are:
 
 - v0.2.0
 - v0.2.1
@@ -182,12 +178,12 @@ And `@rsvim/types` npm versions are:
 - ......
 - v0.3.10
 
-All the `@rsvim/types@v0.2.x` npm packages will be compatible with `rsvim@v0.2.x` cargo crates. All the `@rsvim/types@v0.3.x` npm packages will be compatible with `rsvim@v0.3.x` cargo crates. Usually npm package can have a higher release frequency than cargo crate.
+All the `rsvim-types@v0.2.x` npm packages will be compatible with `rsvim@v0.2.x` cargo crates. All the `rsvim-types@v0.3.x` npm packages will be compatible with `rsvim@v0.3.x` cargo crates. Usually npm package can have a higher release frequency than cargo crate.
 
-So, you can just install a latest compatible version of `@rsvim/types` for your Rsvim binary:
+So, you can just install a latest compatible version of `rsvim-types` for your Rsvim binary:
 
 ```bash
-npm install @rsvim/types@v0.2 --save-dev
+npm install rsvim-types@v0.2 --save-dev
 ```
 
 In above example, we install the last `v0.2.x` npm package for Rsvim v0.2.

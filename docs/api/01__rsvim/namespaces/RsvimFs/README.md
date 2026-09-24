@@ -49,6 +49,18 @@ The File object that access to an open file on filesystem.
 <tr>
 <td>
 
+[DirEntry](type-aliases/DirEntry.md)
+
+</td>
+<td>
+
+Directory entry returned from [RsvimFs.readDir](functions/readDir.md) and [RsvimFs.readDirSync](functions/readDirSync.md).
+
+</td>
+</tr>
+<tr>
+<td>
+
 [FileInfo](type-aliases/FileInfo.md)
 
 </td>
@@ -305,6 +317,54 @@ Sync version of [open](functions/open.md).
 
 ```javascript
 const file = Rsvim.fs.openSync("README.md");
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+[readDir](functions/readDir.md)
+
+</td>
+<td>
+
+Read a directory with async iterator.
+
+**Throws**
+
+Throws [TypeError](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypeError) if the path is invalid. Or throws [Error](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error) if failed to read the directory.
+
+**Example**
+
+```javascript
+for await (const entry of Rsvim.fs.readDir(".")) {
+  Rsvim.cmd.echo(entry.name);
+}
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+[readDirSync](functions/readDirSync.md)
+
+</td>
+<td>
+
+Sync version of [readDir](functions/readDir.md).
+
+**Throws**
+
+Throws [TypeError](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypeError) if the path is invalid. Or throws [Error](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error) if failed to read the directory.
+
+**Example**
+
+```javascript
+for (const entry of Rsvim.fs.readDirSync(".")) {
+  Rsvim.cmd.echo(entry.name);
+}
 ```
 
 </td>

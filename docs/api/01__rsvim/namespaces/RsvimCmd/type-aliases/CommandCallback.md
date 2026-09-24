@@ -1,8 +1,12 @@
 ```ts
-type CommandCallback = (ctx) => Promise<void>;
+type CommandCallback = (ctx) => 
+  | void
+| Promise<void>;
 ```
 
-Command callback function, this is the backend logic that implements a user ex command.
+Command callback function, the backend logic that implements a user ex command.
+
+Note: The callback function can be either sync or async.
 
 It accepts a `ctx` parameter that indicates runtime information when the command is executed.
 
@@ -33,10 +37,11 @@ It accepts a `ctx` parameter that indicates runtime information when the command
 
 ## Returns
 
-[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`\>
+  \| `void`
+  \| [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`\>
 
 ## See
 
  - [RsvimCmd.create](../functions/create.md)
- - [CommandContext](CommandContext.md)
+ - [RsvimCmd.CommandContext](CommandContext.md)
 ,

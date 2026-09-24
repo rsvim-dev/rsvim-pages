@@ -18,28 +18,27 @@ function HomepageHeader() {
           <Logo />
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.indexCtas}>
-          <Link
-            className="button button--primary"
-            to="/docs/manual/get_started"
-          >
-            Get Started
-          </Link>
-          <Link
-            className="button button--secondary"
-            to="/docs/api/introduction"
-          >
-            API References
-          </Link>
-          <span className={styles.indexCtasGitHubButtonWrapper}>
-            <iframe
-              className={styles.indexCtasGitHubButton}
-              src="https://ghbtns.com/github-btn.html?user=rsvim&amp;repo=rsvim&amp;type=star&amp;count=true&amp;size=large"
-              width={160}
-              height={30}
-              title="GitHub Stars"
-            />
-          </span>
+        <div className={styles.buttons}>
+          <div className="container">
+            <div className="row">
+              <div className="col col--2 col--offset-4">
+                <Link
+                  className="button button--primary button--lg padding-horiz-sm"
+                  to="/docs/manual/get_started"
+                >
+                  Get Started
+                </Link>
+              </div>
+              <div className="col col--2">
+                <Link
+                  className="button button--secondary button--lg padding-horiz-sm"
+                  to="/docs/api/introduction"
+                >
+                  API References
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>

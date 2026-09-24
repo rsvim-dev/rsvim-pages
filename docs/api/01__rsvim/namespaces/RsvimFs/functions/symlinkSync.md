@@ -2,7 +2,8 @@
 function symlinkSync(
    oldpath, 
    newpath, 
-   options?): void;
+   options?
+): void;
 ```
 
 Sync version of [symlink](symlink.md).
@@ -49,7 +50,7 @@ Sync version of [symlink](symlink.md).
 </td>
 <td>
 
-`"file"` \| `"dir"` \| `"junction"`
+`"dir"` \| `"junction"` \| `"file"`
 
 </td>
 </tr>
